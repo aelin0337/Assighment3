@@ -31,14 +31,7 @@ public class MyHashTable<K, V> {
         this.chainArray = new HashNode[capacity];
         this.size = 0;
     }
-    private int hashCode(K key){
-        if(key instanceof String){
-            return key.hashCode();
-        } if(key instanceof Integer){
-            return (Integer) key;
-        }
-        return key.hashCode();
-    }
+
     private int hash(K key){
         return Math.abs(key.hashCode()) % capacity;
     }
