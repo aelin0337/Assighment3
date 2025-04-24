@@ -108,4 +108,18 @@ public class MyHashTable<K, V> {
         }
         return null;
     }
+
+    public int[] getBucketSizes(){
+        int[] sizes = new int[capacity];
+        for(int i = 0; i< capacity; i++){
+            int count = 0;
+            HashNode<K, V> current = chainArray[i];
+            while(current != null){
+                count++;
+                current = current.next;
+            }
+            sizes[i] = count;
+        }
+        return sizes;
+    }
 }
